@@ -6,11 +6,11 @@ docker-goagent
 
 ## Image Creation
 
-This example creates the image with the tag `mengbo/goagent`, but you can
+This example creates the image with the tag `mengbo/docker-goagent`, but you can
 change this to use your own username.
 
 ```
-$ docker build -t="mengbo/goagent" .
+$ docker build -t="mengbo/docker-goagent" .
 ```
 
 Alternately, you can run the following if you have *make* installed...

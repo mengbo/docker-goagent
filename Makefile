@@ -1,4 +1,4 @@
-NAME=goagent
+NAME=docker-goagent
 REGISTRYHOST=
 USERNAME=mengbo
 
