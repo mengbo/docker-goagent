@@ -9,6 +9,9 @@ RUN apt-get -y install python python-dev
 RUN apt-get -y install libevent-dev
 RUN apt-get -y install python-gevent python-openssl python-crypto
 
+RUN apt-get -y install python-pip
+RUN pip install dnslib
+
 RUN mkdir -p /usr/local/src;\
   cd /usr/local/src;\
   curl https://nodeload.github.com/goagent/goagent/legacy.tar.gz/3.0 | tar xz;\
@@ -25,8 +28,9 @@ ADD startlocal.sh /opt/goagent/startlocal
 RUN chmod +x /opt/goagent/startlocal
 ADD uploadserver.sh /opt/goagent/uploadserver
 RUN chmod +x /opt/goagent/uploadserver
-ADD proxy.local.ini /opt/goagent/local/proxy.local.ini
-#ADD CA.crt /opt/goagent/local
+ADD proxy.user.ini /opt/goagent/local/proxy.user.ini
+
+VOLUME ["/usr/local/share/ca-certificates"]
 
 EXPOSE 8087
 
