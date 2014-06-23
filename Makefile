@@ -29,7 +29,8 @@ upload: clean
 		/opt/goagent/uploadserver
 
 run: clean
-	docker run --name $(NAME) -d -p 8087:8087 \
+	docker run --name $(NAME) --dns=127.0.0.1 -d \
+		-p 53:53 -p 53:53/udp -p 8087:8087 \
 		$(DOCKER_VOLUME) $(DOCKER_RUN_ENV) $(USERNAME)/$(NAME)
 	sleep 10
 	docker cp $(NAME):/opt/goagent/local/CA.crt .

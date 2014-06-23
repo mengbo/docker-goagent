@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM mengbo/docker-dnscrypt
 
 MAINTAINER Meng Bo "mengbo@lnu.edu.cn"
 
@@ -28,10 +28,13 @@ ADD startlocal.sh /opt/goagent/startlocal
 RUN chmod +x /opt/goagent/startlocal
 ADD uploadserver.sh /opt/goagent/uploadserver
 RUN chmod +x /opt/goagent/uploadserver
+ADD run.sh /run.sh
+RUN chmod +x /run.sh
 ADD proxy.user.ini /opt/goagent/local/proxy.user.ini
+
 
 VOLUME ["/usr/local/share/ca-certificates"]
 
 EXPOSE 8087
 
-CMD ["/opt/goagent/startlocal"]
+CMD ["/run.sh"]
