@@ -36,7 +36,8 @@ run: clean
 	docker cp $(NAME):/opt/goagent/local/CA.crt .
 
 bash: clean
-	docker run --name $(NAME) -t -i -p 8087:8087 \
+	docker run --name $(NAME) --dns=127.0.0.1 -t -i \
+		-p 53:53 -p 53:53/udp -p 8087:8087 \
 		$(DOCKER_VOLUME) $(DOCKER_RUN_ENV) $(USERNAME)/$(NAME) \
 		/bin/bash
 
