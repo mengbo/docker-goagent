@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#docker pull mengbo/docker-goagent
+docker pull mengbo/docker-goagent
 
 CONTAINER=`docker ps |grep docker-goagent | cut -f 1 -d ' '`
 for c in $ALL_CONTAINER; do
@@ -11,12 +11,6 @@ ALL_CONTAINER=`docker ps -a |grep docker-goagent | cut -f 1 -d ' '`
 for c in $ALL_CONTAINER; do
 	docker rm $c
 done
-
-# Change this to suit your needs.
-#GOAGENT_LISTEN_USERNAME=goagent
-#GOAGENT_LISTEN_PASSWORD=goagent
-#GOAGENT_GAE_APPID=mengbo-goagent
-#GOAGENT_GAE_PASSWORD=tnegaog-obgnem
 
 echo "Enter GoAgent local side proxy username: \c"
 read GOAGENT_LISTEN_USERNAME

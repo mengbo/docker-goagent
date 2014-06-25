@@ -1,8 +1,6 @@
-NAME=docker-goagent
-REGISTRYHOST=
-USERNAME=mengbo
-
 # Change this to suit your needs.
+NAME=docker-goagent
+USERNAME=mengbo
 GOAGENT_LISTEN_USERNAME=goagent
 GOAGENT_LISTEN_PASSWORD=goagent
 GOAGENT_GAE_APPID=docker-goagent
@@ -21,7 +19,7 @@ ALL:=$(shell docker ps -a | grep $(NAME) | cut -f 1 -d ' ')
 all: build
 
 build:
-	docker build -t $(REGISTRYHOST)$(USERNAME)/$(NAME) .
+	docker build -t $(USERNAME)/$(NAME) .
 
 upload: clean
 	docker run --name $(NAME) -t -i -p 8087:8087 \
