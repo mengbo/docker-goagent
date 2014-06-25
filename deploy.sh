@@ -3,7 +3,7 @@
 docker pull mengbo/docker-goagent
 
 CONTAINER=`docker ps |grep docker-goagent | cut -f 1 -d ' '`
-for c in $ALL_CONTAINER; do
+for c in $CONTAINER; do
 	docker stop $c
 done
 
