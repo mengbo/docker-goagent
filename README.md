@@ -24,7 +24,7 @@ You can also specify custom variables by change the Makefile.
 You can run it by the following command...
 
 ```
-$ curl https://raw.githubusercontent.com/mengbo/docker-goagent/master/deploy.sh | sh
+$ wget https://raw.githubusercontent.com/mengbo/docker-goagent/master/deploy.sh; sh ./deploy.sh
 ```
 
 
